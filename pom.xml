@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.stbland.test.errai</groupId>
+    <artifactId>errai-tutorial-tomcat</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>errai-tutorial-tomcat</name>
+    <description>Errai tutorial project that running on Tomcat server</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        
+        <!-- errai-tutorial WAR import -->
+        <dependency>
+            <groupId>org.jboss.errai.demo</groupId>
+            <artifactId>errai-tutorial</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        
+        <!--
+        Weld Servlet Core 
+        https://docs.jboss.org/weld/reference/2.3.4.Final/en-US/html/environments.html#weld-servlet
+        -->
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>2.3.4.Final</version>
+        </dependency>        
+                       
+        <!-- Jersey JAX-RS core Servlet 2.x implementation  -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+
+        <!-- Hibernate definition of the Java Persistence 2.0 (JSR 317) API.  -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
+        </dependency>
+        
+    </dependencies>
+
+    <build>
+        <finalName>errai-tutorial</finalName>
+        
+        <plugins>
+            <!-- maven-compiler-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target> 
+                </configuration>
+            </plugin>
+            
+            <!-- maven-war-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
+            
+            <!-- tomcat7-maven-plugin -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>    
+   
+        </plugins>
+    </build>
+
+</project>
